@@ -5,6 +5,8 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/strict-boolean-expressions': 'off',
-    '@typescript-eslint/no-namespace': 'off'
+    '@typescript-eslint/no-namespace': 'off',
+    '@typescript-eslint/return-await': 'off',
+    '@typescript-eslint/no-floating-promises': 'off'
   }
 }
