@@ -8,7 +8,7 @@ export const mockLoadedRoomByDate: RoomFinderRepository.Result = {
 }
 
 export class RoomFinderRepositorySpy implements RoomFinderRepository {
-  async loadRoomByDate (params: RoomFinderRepository.Params): Promise<RoomFinderRepository.Result> {
-    return mockLoadedRoomByDate
+  async loadRoomByDate (params: RoomFinderRepository.Params): Promise<RoomFinderRepository.Result[]> {
+    return [mockLoadedRoomByDate]
   }
 }

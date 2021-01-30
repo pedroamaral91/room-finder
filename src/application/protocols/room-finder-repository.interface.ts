@@ -1,7 +1,7 @@
 export interface RoomFinderRepository {
   loadRoomByDate: (
     params: RoomFinderRepository.Params
-  ) => Promise<RoomFinderRepository.Result>
+  ) => Promise<RoomFinderRepository.Result[]>
 }
 
 export namespace RoomFinderRepository {

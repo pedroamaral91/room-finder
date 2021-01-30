@@ -19,7 +19,7 @@ describe('DbRoomFinder Tests', () => {
   it('should return a valid room', async () => {
     const { dbRoomFinder } = dbRoomFinderFactory()
     const response = await dbRoomFinder.fetchRoom(mockParam)
-    expect(response).toMatchObject(mockLoadedRoomByDate)
+    expect(response).toMatchObject([mockLoadedRoomByDate])
   })
   it('should call [roomFinderRepository] with correct values', async () => {
     const { dbRoomFinder, roomFinderRepository } = dbRoomFinderFactory()

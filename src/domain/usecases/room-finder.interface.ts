@@ -1,5 +1,5 @@
 export interface RoomFinder {
-  fetchRoom: (params: RoomFinder.Params) => Promise<RoomFinder.Result>
+  fetchRoom: (params: RoomFinder.Params) => Promise<RoomFinder.Result[]>
 }
 
 export namespace RoomFinder {

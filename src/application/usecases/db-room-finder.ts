@@ -3,7 +3,7 @@ import { RoomFinderRepository } from '../protocols/room-finder-repository.interf
 
 export class DbRoomFinder implements RoomFinder {
   constructor (private readonly roomFinderRepository: RoomFinderRepository) {}
-  async fetchRoom (params: RoomFinder.Params): Promise<RoomFinder.Result> {
+  async fetchRoom (params: RoomFinder.Params): Promise<RoomFinder.Result[]> {
     return this.roomFinderRepository.loadRoomByDate(params)
   }
 }
