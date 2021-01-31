@@ -52,7 +52,7 @@ POST /buscar
 | `checkout` | `string` |Data de saída (ex: 03/02/2021). |
 
 **Response**
-
+- SUCCESS
 ```json
 [
   {
@@ -64,7 +64,19 @@ POST /buscar
   ...
 ]
 ```
-
+- FAILURE
+**404**
+```json
+error: "Room was not found"
+```
+**400**
+```json
+error: "Checkin must be in dd/MM/yyyy format"
+```
+**400**
+```json
+error: "Checkout must be in dd/MM/yyyy format"
+```
 ## Overview
 ---
 ### 1. Lista de dependências
