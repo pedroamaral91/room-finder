@@ -1,4 +1,4 @@
-import { ok, badRequest } from '../helpers'
+import { ok, badRequest, notFound } from '../helpers'
 import { HttpResponse } from '../protocols'
 import { Controller } from '../protocols/controller'
 import { Validation } from '../protocols/validation'
@@ -17,7 +17,7 @@ export class RoomFinderController implements Controller {
       if (error) return badRequest(error)
 
       const rooms = await this.roomFinder.fetchRoom(request)
-
+      if (!rooms) return notFound('Room')
       return ok(rooms)
     } catch (er) {
       console.log({ er })
