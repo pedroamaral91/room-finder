@@ -8,6 +8,6 @@ export class DateValidation implements Validation {
   ) {}
 
   validate (input: any): Error {
-    if (!this.REGEX.test(input[this.fieldName])) return new BAD_REQUEST(this.fieldName)
+    if (!this.REGEX.test(input[this.fieldName])) return new BAD_REQUEST(`${this.fieldName} must be in dd/MM/yyyy format`)
   }
 }
