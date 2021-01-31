@@ -2,7 +2,7 @@ import { RoomFinder } from '@/domain/usecases/room-finder.interface'
 
 export const mockRooms: RoomFinder.Result[] = [{
   description: 'valid_description',
-  image_url: 'image_url',
+  images: ['image_url'],
   name: 'valid_name',
   price: 'price'
 }
