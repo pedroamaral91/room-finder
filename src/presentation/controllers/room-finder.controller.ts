@@ -20,7 +20,6 @@ export class RoomFinderController implements Controller {
       if (!rooms) return notFound('Room')
       return ok(rooms)
     } catch (er) {
-      console.log({ er })
       return genericError()
     }
   }

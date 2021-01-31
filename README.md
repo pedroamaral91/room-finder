@@ -3,14 +3,14 @@
 </h3>
 
 ## Sumário
----
+
 - [Instalação](#instalação)
 - [Comandos](#comandos)
 - [API](#api)
 - [Overview](#overview)
 
 ## Instalação
----
+
 ### 1. Clone o repositório:
 
 ```bash
@@ -28,12 +28,12 @@ $ yarn dev
 ```
 
 ## Comandos
----
+
 - `yarn test`: Testes unitários da aplicação
 - `yarn dev`: Roda a aplicação em modo de desenvolvimento
 
 ## API
----
+
 A API contempla apenas uma rota.
 
 ### Room Finder
@@ -69,19 +69,22 @@ POST /buscar
 ```json
 error: "Room was not found"
 ```
+- FAILURE
 **400**
 ```json
 error: "Checkin must be in dd/MM/yyyy format"
 ```
+- FAILURE
 **400**
 ```json
 error: "Checkout must be in dd/MM/yyyy format"
 ```
 ## Overview
----
+
 ### 1. Lista de dependências
 - [Express](https://expressjs.com/)
 - [PlayWright](https://playwright.dev/)
+- [DotEnv](https://www.npmjs.com/package/dotenv)
 - [ESLint](https://eslint.org/)
 - [Husky](https://www.npmjs.com/package/husky)
 - [LintStaged](https://www.npmjs.com/package/lint-staged)
@@ -101,8 +104,8 @@ Utilizei arquitetura em camadas, sendo esta aprofundada no livro [Clean Architec
 │   ├── validation/    // camada de validação 
 ```
 As dependências devem ser sempre de cima para baixo, ou seja, as camadas mais externas dependem das camadas mais internas, e nunca o contrário.
-- **DOMAIN**: Camada mais profunda do projeto, onde fica a regra de negócio da aplicação. Ela não tem conhecimento de nenhuma outra camada do projeto.
-- **APPLICATION**: Camada que implementa a regra de negócio da camada DOMAIN. Ela só conhece a camada DOMAIN (abaixo dela).
+- **DOMAIN**: Camada mais profunda do projeto, onde fica a regra de negócio da aplicação. Ela não tem dependência de nenhuma outra camada do projeto.
+- **APPLICATION**: Camada que implementa a regra de negócio da camada DOMAIN. Ela só depende da camada DOMAIN (abaixo dela).
 - **PRESENTATION**: Camada responsável por 'apresentar' de modo visual o projeto (no nosso caso, os controllers). Ela é a camada mais externa da arquitetura. Conhece as camadas abaixo dela.
 - **INFRA**: Responsável por implementar as bibliotecas do projeto, basicamente ela é responsável por alimentar a camada APPLICATION.
 - **MAIN**: Responsável por ligar toda a aplicação, onde fazemos as injeções de dependências e conectamos com alguma biblioteca HTTP (no nosso caso) para executar a API.

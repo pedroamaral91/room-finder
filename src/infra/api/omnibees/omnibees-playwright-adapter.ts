@@ -9,19 +9,15 @@ type RoomDetails = {
 }
 
 export class OmnibeesPlayWrightAdapter implements RoomFinderRepository {
-  private readonly BASE_URL = 'https://myreservations.omnibees.com'
-
   async loadRoomByDate (params: RoomFinderRepository.Params): Promise<RoomFinderRepository.Result[]> {
     const browser = await chromium.launch({ headless: true })
     const page = await browser.newPage()
 
     const PARAMS = this.generateParamsURL(params)
 
-    await page.goto(`${this.BASE_URL}/default.aspx?${PARAMS}`, { waitUntil: 'networkidle' })
+    await page.goto(`${process.env.API_OMNIBEES_URL}/default.aspx?${PARAMS}`, { waitUntil: 'networkidle' })
 
     await page.waitForSelector('#results', { state: 'visible' })
-
-    if (await page.$('#results .info-message')) return null
 
     const roomsDetails = await page.$$eval('#results .roomExcerpt', this.getRoomsDetails)
 

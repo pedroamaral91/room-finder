@@ -1,5 +1,5 @@
 import setupMiddlewares from './middlewares'
-import setupRoutes from './routes'
+import setupRoutes from '@/main/routes'
 
 import express from 'express'
 

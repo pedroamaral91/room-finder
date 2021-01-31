@@ -3,7 +3,7 @@ import { chromium } from 'playwright'
 
 jest.mock('playwright')
 const mockParams = { checkin: '01/01/2001', checkout: '01/01/2001' }
-const mockURL = `https://myreservations.omnibees.com/default.aspx?version=MyReservation&q=5462#/&diff=false&CheckIn=${mockParams.checkin.replace(/[/]/g, '')}&CheckOut=${mockParams.checkout.replace(/[/]/g, '')}&Code=&group_code=&loyality_card=&NRooms=1&ad=1&ch=0&ag=-`
+const mockURL = `https://testurl/default.aspx?version=MyReservation&q=5462#/&diff=false&CheckIn=${mockParams.checkin.replace(/[/]/g, '')}&CheckOut=${mockParams.checkout.replace(/[/]/g, '')}&Code=&group_code=&loyality_card=&NRooms=1&ad=1&ch=0&ag=-`
 const mockResultValue = {
   name: 'valid_name',
   price: 'valid_price',
@@ -36,6 +36,7 @@ const mockPlayWrightFactory = (): any => {
 describe('OmniBees Adatper tests', () => {
   beforeEach(() => jest.clearAllMocks())
   it('should return a valid rooms', async () => {
+    process.env.API_OMNIBEES_URL = 'https://testurl'
     mockPlayWrightFactory()
     const omnibeesAdapter = new OmnibeesPlayWrightAdapter()
     const response = await omnibeesAdapter.loadRoomByDate(mockParams)
