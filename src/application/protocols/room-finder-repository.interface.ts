@@ -13,6 +13,6 @@ export namespace RoomFinderRepository {
     name: string
     price: string
     description: string
-    image_url: string
+    images: string[]
   }
 }

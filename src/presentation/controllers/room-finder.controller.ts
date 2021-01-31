@@ -19,7 +19,8 @@ export class RoomFinderController implements Controller {
       const rooms = await this.roomFinder.fetchRoom(request)
 
       return ok(rooms)
-    } catch {
+    } catch (er) {
+      console.log({ er })
       return genericError()
     }
   }
